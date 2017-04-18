@@ -1,0 +1,30 @@
+<div class="weather__main">
+  <div class="weather__selector">
+    <select ng-model="$ctrl.selectedCity" ng-change="$ctrl.getWeather($ctrl.selectedCity);">
+      <option value="moscow">Moscow</option>
+      <option value="london">London</option>
+      <option value="tokyo">Tokyo</option>
+    </select>
+  </div>
+  <div class="weather__city text-center">
+    {{ $ctrl.city }}
+  </div>
+  <div class="weather__condition">
+    <div class="weather__condition__temp text-center">
+      {{ $ctrl.condition.temp }} °F
+    </div>
+    <div class="weather__condition__text text-center">
+      {{ $ctrl.condition.text }}
+    </div>
+  </div>
+  <div class="weather__forecast">
+    <div ng-repeat="day in $ctrl.forecast" ng-if="$index < 3" class="weather__forecast__day">
+      <div class="weather__forecast__day__date text-center">
+        {{ day.date }}
+      </div>
+      <div class="weather__forecast__day__temp text-center">
+        {{ day.low }} - {{ day.high }} °F
+      </div>
+    </div>
+  </div>
+</div>
